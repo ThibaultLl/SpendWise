@@ -2,184 +2,231 @@
 {% load static %}
 
 {% block content_wrapper %}
+<style>
+    :root {
+        --arrow-bg: rgba(255, 255, 255, 0.3);
+        --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+        --option-bg: white;
+        --select-bg: rgba(255, 255, 255, 0.2);
+      }
 
+    .form-transactions {
+        display: flex;
+        flex-direction:row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .form-transactions {
+        margin-top: 2em;
+        margin-bottom: 1em;
+      }
+      .form-control {
+        margin-bottom: 1em;
+      }
+      .form-control input {
+        width:300px;
+        border: 0;
+        padding: 0.8em 1.5em;
+        border-radius: 0.65em;
+        background-color: #FCFCFC;
+        color: #111111;
+        box-shadow: 4px 4px 4px #c8c8c8 inset, -4px -4px 4px white inset;
+        outline: 0;
+        font-size: 1.2em;
+        transition: box-shadow 0.2s;
+      }
+      .form-control input::placeholder {
+        color: grey;
+      }
+      .form-control input:focus {
+        box-shadow: 2px 2px 2px #c8c8c8 inset, -2px -2px 2px white inset;
+      }
+
+      .form-control select {
+        width:300px;
+        padding: 0.8em 1.5em;
+        border-radius: 0.65em;
+        //background-color: #FCFCFC;
+        background: var(--arrow-icon) no-repeat right 0.8em center/1.4em, linear-gradient(to left, #DBE2EF 3em, white 3em);
+        color: #111111;
+        box-shadow: 4px 4px 4px #c8c8c8 inset, -4px -4px 4px white inset;
+        outline: 0;
+        font-size: 1.2em;
+        transition: box-shadow 0.2s;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border:none;
+        outline:none;
+      }
+
+      .form-control select:focus {
+        box-shadow: 2px 2px 2px #c8c8c8 inset, -2px -2px 2px white inset;
+      }
+
+      .button-form {
+        text-align: center;
+        display: inline-block;
+      }
+      .button-form button {
+        border: 0;
+        text-align:center;
+        padding: 0.8em 1em;
+        border-radius: 2em;
+        background-color: #D6E99B;
+        color: white;
+        box-shadow: 3px 3px 4px #c8c8c8, -4px -4px 4px white;
+        outline: 0;
+        font-size: 1em;
+        transition: box-shadow 0.2s;
+        letter-spacing: .2rem;
+        cursor: pointer;
+      }
+      .button-form button:focus {
+        box-shadow: 2px 2px 2px #c8c8c8 inset, -2px -2px 2px white inset;
+      }
+      
+</style>
 <div class="mid-page">
+    <form class="" style="display:flex;flex-direction:column;">
+        <div class="form-transactions">
+            <div class="form-control">
+                <input type="text" class="number_input" placeholder="Montant..">
+            </div>
+            <div class="form-control">
+                <input type="text" placeholder="Description..">
+            </div>
+            <div class="form-control">
+                <select name="" id="">
+                    <option value="" selected disabled hidden>Catégorie..</option>
+                    <option value="">Option 1</option>
+                    <option value="">Option 2</option>
+                    <option value="">Option 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-control button-form">
+                <button>ENVOYER</button>
+            </div>
+    </form>
+    
+
+
     <div class="top-bar">
-    <div class="history-writing">
-        <h3 class="histo"> History</h3>
-    </div>
-    <div class="top-icons">
-        <img src="https://i.ibb.co/yW0zKfG/magnifying-glass.png" />
-        <img src="https://i.ibb.co/N7bZdnM/controls.png" />
-        <button class="button export">Export
-        <span class="upload">
-        <img src="https://i.ibb.co/B4f8KmF/upload.png"/>
-        </span>
-        </button>
-    </div>
-    </div>
-    <div class="header">
-    <div class="brands">Counterparty
-        <img src="https://i.ibb.co/9NJppsJ/downwards-pointer.png" />
-    </div>
-    <div class="brands">Date
-        <img src="https://i.ibb.co/PZgK4Kh/upload.png" />
-    </div>
-    <div class="brands">Amount
-        <img src="https://i.ibb.co/9NJppsJ/downwards-pointer.png" />
-    </div>
-    </div>
-    <hr class="new-hr">
-    <div class="header">
-    <div class="brand-1">
-        <img src="https://www.iosicongallery.com/icons/stripe-dashboard-2018-10-03/512.png" />
-        <div class="information">
-        <div class="brand-name"> Stripe </div>
-        <div class="sales">Sales</div>
+        <div class="history-writing">
+            <h3 class="histo"> History</h3>
+        </div>
+        <div class="top-icons">
+            <a href="" style="padding-top:4px;"><img src="https://i.ibb.co/yW0zKfG/magnifying-glass.png" /></a>
+            <a href="" style="padding-top:4px;"><img src="https://i.ibb.co/N7bZdnM/controls.png" /></a>
+            <button class="button export">Export
+            <span class="upload">
+            <img src="https://i.ibb.co/B4f8KmF/upload.png"/>
+            </span>
+            </button>
         </div>
     </div>
-
-    <div class="date">Feb. 15, 2018 </div>
-    <div class="amounts1">+2 560 000 EUR</div>
-
+    <div class="header">
+        <div class="brands">Description
+            <img src="https://i.ibb.co/9NJppsJ/downwards-pointer.png" />
+        </div>
+        <div class="brands">Date
+            <img src="https://i.ibb.co/PZgK4Kh/upload.png" />
+        </div>
+        <div class="brands">Montant
+            <img src="https://i.ibb.co/9NJppsJ/downwards-pointer.png" />
+        </div>
     </div>
 
     <hr class="new-hr">
     <div class="header">
-    <div class="brand-1">
-        <img src="https://romanoffconsultants.com/wp-content/uploads/2017/09/weworklogo.png" />
-        <div class="information">
-        <div class="brand-name"> Stripe </div>
-        <div class="sales">Sales</div>
+        <div class="brand-1">
+            <div class="information">
+                <div class="brand-name"> Achat </div>
+                <div class="sales">Utilitaires</div>
+            </div>
         </div>
-    </div>
-
-    <div class="date">Feb. 15, 2018 </div>
-    <div class="amounts">+2 560 000 EUR</div>
-    </div>
-
-    <hr class="new-hr">
-    <div class="header">
-    <div class="brand-1">
-        <img src="https://cdn.freebiesupply.com/logos/large/2x/google-adwords-1-logo-png-transparent.png" />
-        <div class="information">
-        <div class="brand-name"> Stripe </div>
-        <div class="sales">Sales</div>
-        </div>
-    </div>
-
-    <div class="date">Feb. 15, 2018 </div>
-    <div class="amounts">+2 560 000 EUR</div>
-    </div>
-
-    <hr class="new-hr">
-    <div class="header">
-    <div class="brand-1">
-        <img src="https://media.licdn.com/dms/image/C4E0BAQFctCPSXPF3kw/company-logo_200_200/0?e=2159024400&v=beta&t=DYQFOlyx6M3JfZlJ1UDRjnPinpC11Ebhx6CbiHjhS5s" />
-        <div class="information">
-        <div class="brand-name"> Stripe </div>
-        <div class="sales">Sales</div>
-        </div>
-    </div>
-
-    <div class="date">Feb. 15, 2018 </div>
-    <div class="amounts1">+2 560 000 EUR</div>
-    </div>
-
-    <hr class="new-hr">
-    <div class="header">
-    <div class="brand-1">
-        <img src="https://c7.uihere.com/files/80/274/569/computer-icons-envato-logo-marketplace-thumb.jpg" />
-        <div class="information">
-        <div class="brand-name"> Stripe </div>
-        <div class="sales">Sales</div>
-        </div>
-    </div>
-
-    <div class="date">Feb. 15, 2018 </div>
-    <div class="amounts">+2 560 000 EUR</div>
-    </div>
-
-    <hr class="new-hr">
-    <div class="header">
-    <div class="brand-1">
-        <img src="https://cdn0.iconfinder.com/data/icons/picons-social/57/70-uber-512.png" />
-        <div class="information">
-        <div class="brand-name">Stripe</div>
-        <div class="sales">Sales</div>
-        </div>
-    </div>
-
-    <div class="date">Feb. 15, 2018 </div>
-    <div class="amounts">+2 560 000 EUR</div>
-    </div>
-
-    <hr class="new-hr">
-    <div class="header">
-    <div class="brand-1">
-        <img src="https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png" />
-        <div class="information">
-        <div class="brand-name"> Stripe </div>
-        <div class="sales">Sales</div>
-        </div>
-    </div>
-
-    <div class="date">Feb. 15, 2018 </div>
-    <div class="amounts">+2 560 000 EUR</div>
+        <div class="date">Feb. 15, 2018 </div>
+        <div class="amounts">-50.00 EUR</div>
     </div>
     <hr class="new-hr">
     <div class="header">
-    <div class="brand-1">
-        <img src="https://d1iiooxwdowqwr.cloudfront.net/pub/appsubmissions/20180831184636_officedepotapp.png" />
-        <div class="information">
-        <div class="brand-name"> Stripe </div>
-        <div class="sales">Sales</div>
+        <div class="brand-1">
+            <div class="information">
+                <div class="brand-name"> Achat </div>
+                <div class="sales">Divertissements</div>
+            </div>
         </div>
-    </div>
-
-    <div class="date">Feb. 15, 2018 </div>
-    <div class="amounts">+2 560 000 EUR</div>
-    </div>
-
-    <hr class="new-hr">
-    <div class="header">
-    <div class="brand-1">
-        <img src="http://pngriver.com/wp-content/uploads/2018/04/Download-Pepsi-Logo-Transparent-PNG.png" />
-        <div class="information">
-        <div class="brand-name"> Stripe </div>
-        <div class="sales">Sales</div>
-        </div>
-    </div>
-
-    <div class="date">Feb. 15, 2018 </div>
-    <div class="amounts">+2 560 000 EUR</div>
-
+        <div class="date">Feb. 15, 2018 </div>
+        <div class="amounts">-560.00 EUR</div>
     </div>
     <hr class="new-hr">
     <div class="header">
-    <div class="brand-1">
-        <img src="https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c53e.png" />
-        <div class="information">
-        <div class="brand-name"> Stripe </div>
-        <div class="sales">Sales</div>
+        <div class="brand-1">
+            <div class="information">
+                <div class="brand-name"> Salaire </div>
+                <div class="sales">Dépôt</div>
+            </div>
         </div>
-    </div>
-
-    <div class="date">Feb. 15, 2018 </div>
-    <div class="amounts">+2 560 000 EUR</div>
+        <div class="date">Feb. 15, 2018 </div>
+        <div class="amounts1">+2,560.00 EUR</div>
     </div>
     <hr class="new-hr">
     <div class="header">
-    <div class="brand-1">
-        <img src="https://cdn.freebiesupply.com/images/large/2x/apple-logo-transparent.png" />
-        <div class="information">
-        <div class="brand-name"> Stripe </div>
-        <div class="sales">Sales</div>
+        <div class="brand-1">
+            <div class="information">
+                <div class="brand-name"> Achat </div>
+                <div class="sales">Transports</div>
+            </div>
         </div>
+        <div class="date">Feb. 15, 2018 </div>
+        <div class="amounts">-60.00 EUR</div>
     </div>
-
-    <div class="date">Feb. 15, 2018 </div>
-    <div class="amounts">+2 560 000 EUR</div>
+    <hr class="new-hr">
+    <div class="header">
+        <div class="brand-1">
+            <div class="information">
+                <div class="brand-name">Achat</div>
+                <div class="sales">Utilitaires</div>
+            </div>
+        </div>
+        <div class="date">Feb. 15, 2018 </div>
+        <div class="amounts">-26.00 EUR</div>
+    </div>
+    <hr class="new-hr">
+    <div class="header">
+        <div class="brand-1">
+            <div class="information">
+                <div class="brand-name"> Achat </div>
+                <div class="sales">Nourriture</div>
+            </div>
+        </div>
+        <div class="date">Feb. 15, 2018 </div>
+        <div class="amounts">-250.00 EUR</div>
+    </div>
+    <hr class="new-hr">
+    <div class="header">
+        <div class="brand-1">
+            <div class="information">
+                <div class="brand-name"> Achat </div>
+                <div class="sales">Loyer</div>
+            </div>
+        </div>
+        <div class="date">Feb. 15, 2018 </div>
+        <div class="amounts">-790.00 EUR</div>
+    </div>
+    <hr class="new-hr">
+    <div class="header">
+        <div class="brand-1">
+            <div class="information">
+                <div class="brand-name"> Achat </div>
+                <div class="sales">Nourriture</div>
+            </div>
+        </div>
+        <div class="date">Feb. 15, 2018 </div>
+        <div class="amounts">-6.00 EUR</div>
     </div>
 
 </div>
@@ -193,7 +240,7 @@
         <div class="we">
         <img src="https://romanoffconsultants.com/wp-content/uploads/2017/09/weworklogo.png" />
         </div>
-        <div class="money1"> -3 000.000 EUR</div>
+        <div class="money1"> -121.000 EUR</div>
         <div class="money2"> WeWork</div>
         <button class="button off">Office rental</button>
     </div>

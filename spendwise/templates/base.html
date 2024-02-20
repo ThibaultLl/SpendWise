@@ -21,7 +21,8 @@
           }
           
           .left-column {
-            width:280px;
+            width:245px;
+            min-width:245px;
             background-color: #f5f5f5;
           }
           
@@ -109,7 +110,7 @@
           
           .mid-page {
             padding: 0 55px;
-            width: 60%;
+            width: 100%;
           
             background-color: white;
           }
@@ -135,6 +136,11 @@
             color: white;
             position: relative;
             text-align: center;
+            padding-left: 25px;
+            cursor:pointer;
+          }
+          .export:active {
+            box-shadow: 2px 2px 2px #c8c8c8 inset, -2px -2px 2px white inset;
           }
           .button {
             width: 110px;
@@ -183,7 +189,8 @@
           }
           .date {
             color: grey;
-            margin-left: 110px;
+            width:200px;
+            text-align:right;
           }
           .brand-1 {
             display: flex;
@@ -195,8 +202,14 @@
             font-size: 12px;
             color: grey;
           }
+          .amounts {
+            width: 120px;
+            text-align : right !important;
+          }
           .amounts1 {
             color: green;
+            width: 120px;
+            text-align : right !important;
           }
           .money-first-row {
             padding-top: 10px;
@@ -322,6 +335,10 @@
             margin-top: -150px;
           }
     </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    <!--<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>-->
+    <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
 </head>
 <body>
     
@@ -335,8 +352,8 @@
                 <img src="{% static 'logo.png' %}" />
             </div>
             <div class="account">
-                <h4 class="acc-bal">Account balance </h4>
-                <h3 class="dolar">€ 21,232.29</h3>
+                <h4 class="acc-bal">Solde du compte </h4>
+                <h3 class="dolar">€ 2,232.29</h3>
             </div>
             <div class="items">
                 {% with url_name=request.resolver_match.url_name %}
@@ -356,6 +373,33 @@
         {% block content_wrapper %}{% endblock %}
 
     </div>
+    <!--custom funtion for input number .number_input-->
+    <script>
+        $('.number_input').val(function(index, value) {
+            return value.replace(',', '.');
+         });
+        
+         $('.number_input').on('input', function() {
+            var v = this.value;
+          
+            // Remplacer les virgules par des points
+            v = v.replace(/,/g, '.');
+          
+            // Supprimer tous les caractères indésirables sauf les chiffres et le premier point
+            v = v.replace(/[^\d.]/g, '');
+          
+            // S'assurer qu'il n'y a qu'un seul point et qu'il y ait au moins un chiffre avant
+            var pointIndex = v.indexOf('.');
+            if (pointIndex !== -1) {
+              v = v.slice(0, pointIndex + 1) + v.slice(pointIndex + 1).replace(/\./g, '');
+              if (pointIndex === 0) {
+                v = v.slice(1);
+              }
+            }
+          
+            this.value = v;
+          });
+        </script>
     <script src="https://kit.fontawesome.com/34c46516d8.js" crossorigin="anonymous"></script>
 </body>
 </html>
