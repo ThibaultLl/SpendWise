@@ -1,0 +1,361 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'logo.ico' %}" />
+    <title>SpendWise</title>
+    <style>
+        * {
+            box-sizing: border-box;
+          }
+          body {
+            margin: 0 auto;
+            font-family: "Roboto", sans-serif;
+          }
+
+          a {
+            color: inherit; /* blue colors for links too */
+            text-decoration: inherit; /* no underline */
+          }
+          
+          .left-column {
+            width:280px;
+            background-color: #f5f5f5;
+          }
+          
+          .wrapper {
+            height:100%;
+            display:flex;
+            flex-direction:column;
+            
+            margin-left: 50px;
+          }
+          .container {
+            display: flex;
+            height:100vh;
+          }
+          
+          .brand {
+            display: flex;
+            align-items: center;
+          }
+          .brand > img {
+            height: 120px;
+            padding: 15px 0px 0px 10px;
+          }
+          
+          .qonto {
+            margin-left: 5px;
+            font-weight: normal;
+          }
+          .arow {
+            margin: 5px 0px 0px 10px;
+          }
+          .arow > img {
+            width: 13px;
+            height: 13px;
+          }
+          .acc-bal {
+            font-size: 14px;
+            color: #b0b0b0;
+          }
+          .dolar {
+            font-size: 22px;
+            font-weight: normal;
+            margin-top: -15px;
+            margin-bottom: 40px;
+          }
+          
+          .item {
+            font-weight: normal;
+            color: grey;
+            margin-bottom: 30px;
+          }
+          .item:hover {
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+          }
+
+          .active {
+            color: #3F72AF;
+            font-weight: bold;
+            cursor: pointer;
+          }
+          
+          .fill-logo-2 {
+            fill: #6b5aed;
+          }
+          
+          .last-icon {
+            margin-top: auto;
+          }
+          .logout {
+            font-size: 13px;
+            color: grey;
+            display: flex;
+            margin-top: 3px;
+          
+          }
+          span {
+            font-weight: bold;
+          }
+          .info > img {
+            width: 13px;
+            margin-left: 3px;
+          }
+          
+          .mid-page {
+            padding: 0 55px;
+            width: 60%;
+          
+            background-color: white;
+          }
+          
+          .histo {
+            font-weight: normal;
+            font-size: 20px;
+          }
+          
+          .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+          .top-icons {
+            justify-content: space-between;
+            align-items: center;
+            display: flex;
+            width: 180px;
+          }
+          .export {
+            background-color: #6b5aed;
+            color: white;
+            position: relative;
+            text-align: center;
+          }
+          .button {
+            width: 110px;
+            height: 35px;
+            border-radius: 10px;
+            border: 1px solid;
+          }
+          .upload {
+            position: absolute;
+            z-index: 2;
+            left: 10px;
+            top: 6px;
+          }
+          .upload > img {
+            width: 18px;
+            height: 18px;
+          }
+          .brands {
+            display: flex;
+            align-items: center;
+            color: grey;
+          }
+          .brands > img {
+            width: 10px;
+            height: 10px;
+            margin-top: 5px;
+            margin-left: 2px;
+          }
+          
+          .header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .new-hr {
+            width: 100%;
+            border: 0.5px solid lightgrey;
+            margin-bottom: 13px;
+            margin-top: 13px;
+          }
+          
+          .brand-1 > img {
+            width: 30px;
+            border-radius: 10px;
+          }
+          .date {
+            color: grey;
+            margin-left: 110px;
+          }
+          .brand-1 {
+            display: flex;
+            justify-content: space-between;
+            width: 90px;
+          }
+          
+          .sales {
+            font-size: 12px;
+            color: grey;
+          }
+          .amounts1 {
+            color: green;
+          }
+          .money-first-row {
+            padding-top: 10px;
+          }
+          .money1 {
+            margin-bottom: 15px;
+            font-size: 25px;
+            font-weight: 500;
+          }
+          .money2 {
+            margin-bottom: 15px;
+            color: grey;
+          }
+          .right-page {
+            width: 30%;
+            background-color: #f8f8fa;
+            padding: 0 20px 0 40px;
+          }
+          .right-information {
+            text-align: center;
+            margin-top: 15px;
+          }
+          
+          .dates-of {
+            color: grey;
+          }
+          .transfer {
+            font-size: 14px;
+          }
+          
+          .person-info {
+            margin-top: 40px;
+            width: 100%;
+            height: 50%;
+            background-color: white;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 40px;
+          }
+          .off {
+            background-color: #b3c6ff;
+            color: #1a53ff;
+            font-weight: bold;
+            height: 25px;
+            border: 1px solid #b3c6ff;
+            width: 125px;
+          }
+          .person-img > img {
+            width: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+          }
+          .person-img {
+            display: flex;
+            margin-left: 20px;
+          }
+          .department {
+            color: grey;
+            font-size: 13px;
+          }
+          .iban-no {
+            color: grey;
+            font-weight: normal;
+          }
+          .iban {
+            font-size: 14px;
+            margin-bottom: 8px;
+          }
+          .money-info {
+            margin-left: 20px;
+            text-align: left;
+          }
+          .download {
+            font-size: 17px;
+            font-weight: 500;
+            margin-left: 10px;
+            text-align: center;
+          }
+          .down {
+            display: flex;
+            align-items: center;
+            margin: 0 50px auto;
+          }
+          .note {
+            font-weight: 500;
+            margin-bottom: 20px;
+          }
+          .write {
+            color: grey;
+            font-size: 14px;
+          }
+          .note2 {
+            font-weight: 500;
+            margin-top: 10px;
+            display: flex;
+          }
+          .new-hr2 {
+            border: 1px dashed grey;
+            width: 100px;
+            margin-left: 1px;
+            margin-top: -1px;
+          }
+          .question {
+            margin-left: 6px;
+          }
+          .down-document {
+            font-size: 14px;
+            color: grey;
+          }
+          .document {
+            margin-top: 20px;
+            display: flex;
+          }
+          .accounting {
+            margin-top: 55px;
+            font-weight: 500;
+            font-size: 15px;
+          }
+          
+          .we > img {
+            border-radius: 15px;
+            width: 55px;
+            margin-top: -150px;
+          }
+    </style>
+</head>
+<body>
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,900,&display=swap" rel="stylesheet">
+
+    <div class="container">
+        <div class="left-column">
+            <div class="wrapper">
+            <div class="brand">
+                <img src="{% static 'logo.png' %}" />
+            </div>
+            <div class="account">
+                <h4 class="acc-bal">Account balance </h4>
+                <h3 class="dolar">€ 21,232.29</h3>
+            </div>
+            <div class="items">
+                {% with url_name=request.resolver_match.url_name %}
+                <h4 class="item {% if url_name == 'dashboard' %}active{% endif %}"><a href="{% url 'dashboard:dashboard' %}"><i class="fa-solid fa-gauge-high"></i> Dashboard</a> </h4>
+                <h4 class="item {% if url_name == 'budget' %}active{% endif %}"><a href="{% url 'budget:budget' %}"><i class="fa-solid fa-sack-dollar"></i> Budget</a> </h4>
+                <h4 class="item {% if url_name == 'transactions' %}active{% endif %}"><a href="{% url 'transactions:transactions' %}"><i class="fa-solid fa-file-invoice-dollar"></i> Transactions</a> </h4>
+                
+                {% endwith %}
+            </div>
+            <div class="items last-icon">
+                {% with url_name=request.resolver_match.url_name %}
+                <h4 class="item {% if url_name == 'configuration' %}active{% endif %}"><a href="{% url 'configuration:configuration' %}"><i class="fa-solid fa-gear"></i> Configuration</a></h4>
+                {% endwith %}
+            </div>
+            </div>
+        </div>
+        {% block content_wrapper %}{% endblock %}
+
+    </div>
+    <script src="https://kit.fontawesome.com/34c46516d8.js" crossorigin="anonymous"></script>
+</body>
+</html>
